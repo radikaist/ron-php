@@ -1,0 +1,31 @@
+name: Deploy Website to Hosting
+
+# Workflow ini akan berjalan otomatis setiap ada 'push' ke branch 'main'
+on:
+  push:
+    branches:
+      - main # Ubah ke 'master' jika branch utama Anda bernama master
+
+jobs:
+  web-deploy:
+    name: Deploy ke CPanel / Hosting
+    runs-on: ubuntu-latest
+    steps:
+    # Mengambil kode terbaru dari repository
+    - name: Get latest code
+      uses: actions/checkout@v4
+      
+    # Proses sinkronisasi file ke FTP Server
+    - name: Sync files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # Directory tujuan di hosting. Pastikan diakhiri dengan garis miring (/)
+        server-dir: /public_html/dev.radika.id/
+        # Opsional: Jika ingin mengabaikan file/folder tertentu agar tidak ikut terupload
+        # exclude: |
+        #   **/.git*
+        #   **/.git*/**
+        #   **/node_modules/**

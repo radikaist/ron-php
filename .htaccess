@@ -1,6 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    # Mengarahkan semua akses ke folder public
-    RewriteRule ^$ public/ [L]
-    RewriteRule (.*) public/$1 [L]
+    
+    # Cegah rewrite berulang jika sudah masuk ke folder public
+    RewriteCond %{REQUEST_URI} !^/public/
+    
+    # Arahkan semua request ke folder public
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>

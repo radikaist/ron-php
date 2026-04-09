@@ -12,14 +12,24 @@ class App {
         // Cek apakah ada parameter url pertama dan file controller-nya ada
         if (isset($url[0])) {
             $controllerName = ucwords($url[0]) . 'Controller'; // Ubah 'home' jadi 'HomeController'
-            if (file_exists('../app/Controllers/' . $controllerName . '.php')) {
+            
+            // Gunakan ROOT_PATH untuk mengecek file
+            if (file_exists(ROOT_PATH . '/app/Controllers/' . $controllerName . '.php')) {
                 $this->controller = $controllerName;
                 unset($url[0]);
             }
         }
 
+        // Tentukan path lengkap controller
+        $controllerPath = ROOT_PATH . '/app/Controllers/' . $this->controller . '.php';
+
+        // Pengecekan ekstra: Jika file tidak ada, tampilkan pesan error yang jelas
+        if (!file_exists($controllerPath)) {
+            die("<b>Error RON PHP:</b> File Controller <strong>{$this->controller}.php</strong> tidak ditemukan di folder <strong>app/Controllers/</strong>. <br>Mohon periksa kembali huruf besar/kecil pada nama file dan foldernya.");
+        }
+
         // Panggil dan instansiasi controller
-        require_once '../app/Controllers/' . $this->controller . '.php';
+        require_once $controllerPath;
         $this->controller = new $this->controller;
 
         // 2. Setup Method

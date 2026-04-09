@@ -6,11 +6,13 @@ ini_set('display_errors', 1);
 // Mulai session untuk kebutuhan login/RBAC
 if (!session_id()) session_start();
 
-// Panggil file inti framework
-// CATATAN PENTING: Pastikan huruf besar/kecil di struktur folder Anda 
-// sama persis dengan '../app/Core/App.php'
-require_once '../app/Core/App.php';
-require_once '../app/Core/Controller.php';
+// Definisikan ROOT_PATH agar pemanggilan file lebih presisi
+// dirname(__DIR__) akan menghasilkan path absolut ke folder utama aplikasi Anda
+define('ROOT_PATH', dirname(__DIR__)); 
+
+// Panggil file inti framework menggunakan ROOT_PATH
+require_once ROOT_PATH . '/app/Core/App.php';
+require_once ROOT_PATH . '/app/Core/Controller.php';
 
 // Jalankan mesin routing
 $app = new App();

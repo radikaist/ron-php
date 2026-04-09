@@ -23,7 +23,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         # Directory tujuan di hosting. Pastikan diakhiri dengan garis miring (/)
-        server-dir: /public_html/dev.radika.id/
+        server-dir: /public_html/mfg.radika.id/
         # Opsional: Jika ingin mengabaikan file/folder tertentu agar tidak ikut terupload
         # exclude: |
         #   **/.git*

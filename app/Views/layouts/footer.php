@@ -7,9 +7,16 @@
     </footer>
 
 </div>
-<script src="[https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js](https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js)"></script>
-<script src="[https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js](https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js)"></script>
-<script src="[https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js](https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js)"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Hapus class hold-transition agar animasi sidebar terlihat mulus
+        $('body').removeClass('hold-transition');
+    });
+</script>
 
 </body>
 </html>

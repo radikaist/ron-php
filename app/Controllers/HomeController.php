@@ -5,7 +5,7 @@ class HomeController extends Controller {
     public function index() {
         // Menyiapkan data yang akan dikirim ke View
         $data = [
-            'title'   => 'Dashboard ERP',
+            'title'   => 'RON PHP Dashboard', // <-- Bagian ini yang kita rubah
             'appName' => 'Sistem Manufaktur RON PHP'
         ];
 
